@@ -1,0 +1,488 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08091d">
+    <title>Happy Birthday, Teteh Oky ✦</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- BACKGROUND -->
+    <div id="sky"></div>
+    <div id="stars"></div>
+    <div id="shooting-stars"></div>
+    <div id="clouds"></div>
+    <div id="lanterns"></div>
+    <div id="particles"></div>
+    <div id="sparkles"></div>
+
+    <!-- CANVAS FX -->
+    <canvas id="fx"></canvas>
+
+    <!-- LOADING -->
+    <section class="screen active" id="loading">
+        <div class="loading-wrap">
+
+            <div class="loader-orbit">
+                <div class="loader-core">✦</div>
+            </div>
+
+            <div class="eyebrow">
+                ✦ SPECIAL DAY ✦
+            </div>
+
+            <h1>
+                Menyiapkan sesuatu<br>
+                yang spesial...
+            </h1>
+
+            <div class="loading-bar">
+                <div id="loading-progress"></div>
+            </div>
+
+            <div id="loading-percent">
+                0%
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- OPENING -->
+    <section class="screen" id="opening">
+
+        <div class="moon">
+            ☾
+        </div>
+
+        <div class="opening-content">
+
+            <div class="eyebrow">
+                ✦ A LITTLE SURPRISE ✦
+            </div>
+
+            <h1>
+                Happy Birthday,<br>
+                <span>Teteh Oky</span>
+            </h1>
+
+            <p>
+                Ada sesuatu kecil yang disiapkan<br>
+                khusus untuk hari spesial Teteh hari ini.
+            </p>
+
+            <div class="wave-hand">
+                👋
+            </div>
+
+            <button class="main-button" id="start-button">
+                Buka Kejutan
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- UCAPAN -->
+    <section class="screen" id="greeting">
+
+        <div class="message-card">
+
+            <div class="cake">
+                🎂
+            </div>
+
+            <div class="eyebrow">
+                ✦ SELAMAT ULANG TAHUN ✦
+            </div>
+
+            <h2>
+                Untuk Teteh Oky 🤍
+            </h2>
+
+            <div class="message-text">
+
+                <p>
+                    Semoga di usia yang baru Teteh selalu diberikan
+                    kesehatan, kebahagiaan, ketenangan, dan banyak hal
+                    baik yang datang tanpa disangka-sangka.
+                </p>
+
+                <p>
+                    Semoga rezekinya semakin lancar dan penuh berkah,
+                    segala urusan dimudahkan, dan keluarga selalu
+                    diberikan keharmonisan, kerukunan, serta kebahagiaan.
+                </p>
+
+                <p>
+                    Semoga apa pun yang sedang diperjuangkan
+                    pelan-pelan menemukan jalannya.
+                </p>
+
+            </div>
+
+            <button class="main-button" id="game-button">
+                Ada Game Kecil 🎮
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- MINI GAME -->
+    <section class="screen" id="game">
+
+        <div class="game-card">
+
+            <div class="eyebrow">
+                ✦ MINI GAME ✦
+            </div>
+
+            <h2>
+                Tangkap Bintangnya ⭐
+            </h2>
+
+            <p>
+                Klik bintang sebanyak mungkin sebelum waktunya habis.
+            </p>
+
+            <div class="game-stats">
+                <span>
+                    ⭐ <b id="score">0</b>
+                </span>
+
+                <span>
+                    ⏱ <b id="timer">15</b>s
+                </span>
+            </div>
+
+            <div id="game-arena">
+
+                <div id="game-start">
+
+                    <div class="big-star">
+                        ⭐
+                    </div>
+
+                    <h3>
+                        Siap?
+                    </h3>
+
+                    <button class="main-button" id="begin-game">
+                        Mulai Game
+                    </button>
+
+                </div>
+
+                <button id="star-target">
+                    ★
+                </button>
+
+                <div id="game-result">
+
+                    <div class="big-star">
+                        ✨
+                    </div>
+
+                    <h3 id="result-title">
+                        Berhasil!
+                    </h3>
+
+                    <p id="result-text"></p>
+
+                    <button class="main-button" id="game-finish-button">
+                        Lihat Keajaiban ✨
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MOTION BINTANG -->
+    <section class="screen" id="star-motion">
+
+        <div class="star-motion-scene">
+
+            <div id="flying-star">
+                ★
+            </div>
+
+            <div id="star-trail"></div>
+
+            <div class="eyebrow">
+                ✦ ONE LITTLE WISH ✦
+            </div>
+
+            <h2>
+                Bintangnya kembali<br>
+                ke langit...
+            </h2>
+
+            <p>
+                membawa doa baik untuk Teteh Oky ✨
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SURAT -->
+    <section class="screen" id="letter">
+
+        <div class="letter-scene">
+
+            <div class="eyebrow">
+                ✦ FOR YOU ✦
+            </div>
+
+            <h2>
+                Ada sebuah surat kecil...
+            </h2>
+
+            <p>
+                Tekan amplopnya untuk membukanya.
+            </p>
+
+            <button
+                class="envelope-button"
+                id="envelope-button"
+                aria-label="Buka surat"
+            >
+
+                <div class="envelope">
+
+                    <div class="envelope-back"></div>
+
+                    <div class="letter-paper">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+
+                    <div class="envelope-front"></div>
+
+                    <div class="envelope-flap"></div>
+
+                    <div class="envelope-seal">
+                        ✦
+                    </div>
+
+                </div>
+
+            </button>
+
+            <div class="tap-hint">
+                ✦ buka surat ✦
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SURAT PART 1 / 2 / 3 -->
+    <section class="screen" id="letter-parts">
+
+        <div class="letter-card">
+
+            <div class="letter-icon">
+                💌
+            </div>
+
+            <div class="eyebrow" id="letter-part-label">
+                ✦ PART 1 ✦
+            </div>
+
+            <h2 id="letter-part-title">
+                Untuk Teteh Oky 🤍
+            </h2>
+
+            <div class="letter-part-text">
+                <p id="letter-part-text"></p>
+            </div>
+
+            <div class="letter-dots">
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+
+            <button class="main-button" id="next-letter">
+                Lanjut
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRANK -->
+    <section class="screen" id="prank">
+
+        <div class="prank-card">
+
+            <div id="prank-loading">
+
+                <div class="prank-loader">
+                    ✦
+                </div>
+
+                <div class="eyebrow">
+                    ✦ MENCARI HADIAH ✦
+                </div>
+
+                <h2 id="prank-status">
+                    Menghubungkan ke server...
+                </h2>
+
+                <div class="fake-progress">
+                    <div id="fake-progress-bar"></div>
+                </div>
+
+                <strong id="fake-percent">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div id="prank-result">
+
+                <div class="prank-emoji">
+                    😂
+                </div>
+
+                <div class="eyebrow">
+                    ✦ HADIAH DITEMUKAN ✦
+                </div>
+
+                <h2>
+                    Ternyata...
+                </h2>
+
+                <p>
+                    Hadiahnya adalah doa-doa baik yang
+                    nggak habis-habis buat Teteh. 😭
+                </p>
+
+                <button class="main-button" id="prayer-button">
+                    Lanjut ke Doa 🤲
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DOA -->
+    <section class="screen" id="prayer">
+
+        <div class="prayer-scene">
+
+            <div class="prayer-glow"></div>
+
+            <div class="praying-person">
+
+                <div class="person-head"></div>
+
+                <div class="person-body"></div>
+
+                <div class="praying-hands">
+                    🤲
+                </div>
+
+            </div>
+
+            <div class="eyebrow">
+                ✦ DOA TERBAIK ✦
+            </div>
+
+            <h2>
+                Semoga selalu dalam<br>
+                keberkahan.
+            </h2>
+
+            <p>
+                Semoga Allah selalu menjaga Teteh dan keluarga,
+                memberikan kesehatan, kelancaran rezeki,
+                ketenangan hati, serta keberkahan dalam setiap langkah.
+            </p>
+
+            <button class="main-button" id="final-button">
+                Lihat Penutup
+                <span>✦</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+    <section class="screen" id="final">
+
+        <div class="final-scene">
+
+            <div class="final-lantern">
+                🏮
+            </div>
+
+            <div class="eyebrow">
+                ✦ ONE MORE THING ✦
+            </div>
+
+            <h2>
+                Semoga tahun ini
+            </h2>
+
+            <h1>
+                menjadi awal dari<br>
+                banyak hal baik yang baru.
+            </h1>
+
+            <div class="gold-line"></div>
+
+            <p>
+                Dengan doa terbaik untuk Teteh Oky dan keluarga 🤍
+            </p>
+
+            <button class="replay-button" id="replay-button">
+                ↻ Ulangi
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- MUSIK ASLI PUNYA KAMU -->
+<audio
+    id="birthday-music"
+    src="assets/music/backsound imoett.mp3"
+    loop
+    preload="auto"
+></audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>

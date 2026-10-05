@@ -1,0 +1,1389 @@
+﻿/* =========================================================
+   BIRTHDAY TETEH OKY — FINAL STYLE
+   ========================================================= */
+
+:root{
+    --bg:#060817;
+    --bg2:#10132d;
+    --gold:#ffd98a;
+    --gold2:#fff0bf;
+    --pink:#ffb9d7;
+    --blue:#9fcaff;
+    --white:#fff;
+    --muted:rgba(255,255,255,.72);
+    --glass:rgba(255,255,255,.075);
+    --border:rgba(255,255,255,.15);
+    --shadow:0 30px 90px rgba(0,0,0,.42);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+    overflow:hidden;
+}
+
+body{
+    background:
+        radial-gradient(circle at 50% 15%,rgba(67,77,150,.28),transparent 35%),
+        linear-gradient(180deg,#090b22 0%,#070817 55%,#03040d 100%);
+    color:var(--white);
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+button{
+    font:inherit;
+}
+
+button:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:5px;
+}
+
+#birthday-music{
+    display:none;
+}
+
+
+/* =========================================================
+   GLOBAL BACKGROUND
+   ========================================================= */
+
+#app{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    isolation:isolate;
+}
+
+#sky{
+    position:absolute;
+    inset:0;
+    z-index:-20;
+    background:
+        radial-gradient(circle at 50% 25%,rgba(89,102,190,.18),transparent 32%),
+        linear-gradient(180deg,#080a22 0%,#0b0e2b 42%,#04050e 100%);
+}
+
+#sky::before{
+    content:"";
+    position:absolute;
+    inset:-20%;
+    background:
+        radial-gradient(circle at 25% 20%,rgba(255,196,121,.08),transparent 18%),
+        radial-gradient(circle at 75% 30%,rgba(166,122,255,.08),transparent 20%);
+    animation:skyDrift 18s ease-in-out infinite alternate;
+}
+
+#sky::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(90deg,transparent,rgba(255,255,255,.025),transparent);
+    animation:scan 9s linear infinite;
+}
+
+#stars,
+#shooting-stars,
+#clouds,
+#lanterns,
+#particles,
+#sparkles{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+#stars{
+    z-index:-15;
+}
+
+#stars::before,
+#stars::after{
+    content:"";
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:
+        7vw 12vh #fff,
+        14vw 31vh #cfe0ff,
+        22vw 18vh #fff,
+        29vw 9vh #ffe7b0,
+        35vw 37vh #fff,
+        42vw 16vh #dce9ff,
+        49vw 8vh #fff,
+        56vw 27vh #ffe9c2,
+        64vw 13vh #fff,
+        72vw 34vh #d6e5ff,
+        79vw 17vh #fff,
+        87vw 7vh #fff,
+        94vw 28vh #ffe7b0,
+        10vw 68vh #fff,
+        19vw 80vh #cfe0ff,
+        31vw 64vh #fff,
+        46vw 74vh #fff,
+        58vw 63vh #ffe8ba,
+        69vw 82vh #fff,
+        82vw 69vh #dce9ff,
+        91vw 78vh #fff;
+    opacity:.7;
+    animation:twinkle 3s ease-in-out infinite alternate;
+}
+
+#stars::after{
+    width:2px;
+    height:2px;
+    transform:translate(18px,25px);
+    opacity:.45;
+    animation-delay:1.4s;
+}
+
+
+/* =========================================================
+   SHOOTING STARS
+   ========================================================= */
+
+#shooting-stars::before,
+#shooting-stars::after{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:2px;
+    border-radius:999px;
+    background:linear-gradient(90deg,transparent,#fff,transparent);
+    transform:rotate(-28deg);
+    opacity:0;
+    animation:shoot 7s linear infinite;
+}
+
+#shooting-stars::before{
+    top:18%;
+    left:72%;
+}
+
+#shooting-stars::after{
+    top:38%;
+    left:18%;
+    animation-delay:3.5s;
+}
+
+
+/* =========================================================
+   CLOUDS
+   ========================================================= */
+
+#clouds::before,
+#clouds::after{
+    content:"";
+    position:absolute;
+    width:45vw;
+    height:90px;
+    border-radius:50%;
+    background:rgba(145,157,208,.045);
+    filter:blur(18px);
+}
+
+#clouds::before{
+    left:-12vw;
+    bottom:12vh;
+    animation:cloudMove 18s ease-in-out infinite alternate;
+}
+
+#clouds::after{
+    right:-14vw;
+    bottom:24vh;
+    animation:cloudMove 23s ease-in-out infinite alternate-reverse;
+}
+
+
+/* =========================================================
+   LANTERNS
+   ========================================================= */
+
+#lanterns::before,
+#lanterns::after{
+    content:"🏮";
+    position:absolute;
+    font-size:clamp(28px,4vw,54px);
+    filter:
+        drop-shadow(0 0 12px rgba(255,173,73,.55))
+        drop-shadow(0 0 35px rgba(255,163,58,.2));
+    opacity:.72;
+}
+
+#lanterns::before{
+    top:7%;
+    left:7%;
+    animation:lanternSwing 4.5s ease-in-out infinite;
+}
+
+#lanterns::after{
+    top:11%;
+    right:8%;
+    animation:lanternSwing 5.2s ease-in-out infinite reverse;
+}
+
+
+/* =========================================================
+   CANVAS
+   ========================================================= */
+
+#fx{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:30;
+}
+
+
+/* =========================================================
+   SCREEN ENGINE
+   ========================================================= */
+
+.screen{
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    padding:24px;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:scale(1.035);
+    transition:
+        opacity .8s ease,
+        transform 1s cubic-bezier(.2,.8,.2,1),
+        visibility .8s ease;
+}
+
+.screen.active{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:scale(1);
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+#loading{
+    background:
+        radial-gradient(circle,rgba(255,214,142,.08),transparent 30%);
+}
+
+.loading-wrap{
+    width:min(480px,90vw);
+    text-align:center;
+}
+
+.loader-orbit{
+    width:88px;
+    height:88px;
+    margin:0 auto 30px;
+    border:1px solid rgba(255,217,138,.2);
+    border-top-color:var(--gold);
+    border-right-color:var(--pink);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    animation:spin 2.4s linear infinite;
+    box-shadow:0 0 45px rgba(255,202,110,.12);
+}
+
+.loader-core{
+    font-size:30px;
+    color:var(--gold);
+    animation:pulse 1.6s ease-in-out infinite;
+}
+
+.loading-wrap h1{
+    margin:14px 0 25px;
+    font-size:clamp(25px,4vw,42px);
+    line-height:1.2;
+    font-weight:600;
+}
+
+.eyebrow{
+    font-size:11px;
+    letter-spacing:.28em;
+    color:var(--gold);
+    text-transform:uppercase;
+    opacity:.88;
+}
+
+.loading-bar,
+.fake-progress{
+    width:min(350px,80vw);
+    height:5px;
+    margin:0 auto 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.1);
+    overflow:hidden;
+}
+
+#loading-progress,
+#fake-progress-bar{
+    width:0%;
+    height:100%;
+    border-radius:inherit;
+    background:linear-gradient(90deg,var(--blue),var(--pink),var(--gold));
+    box-shadow:0 0 18px rgba(255,215,140,.55);
+    transition:width .2s ease;
+}
+
+#loading-percent,
+#fake-percent{
+    color:var(--muted);
+    font-size:13px;
+}
+
+
+/* =========================================================
+   OPENING
+   ========================================================= */
+
+.moon{
+    position:absolute;
+    top:9%;
+    right:11%;
+    width:clamp(70px,9vw,120px);
+    height:clamp(70px,9vw,120px);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:clamp(65px,8vw,105px);
+    color:#fff3ca;
+    text-shadow:
+        0 0 20px rgba(255,226,160,.55),
+        0 0 65px rgba(255,221,146,.18);
+    animation:moonFloat 5s ease-in-out infinite;
+}
+
+.opening-content{
+    position:relative;
+    width:min(850px,92vw);
+    text-align:center;
+    z-index:2;
+}
+
+.opening-content h1{
+    margin:20px 0;
+    font-size:clamp(42px,8vw,92px);
+    line-height:.98;
+    font-weight:700;
+    letter-spacing:-.045em;
+    text-shadow:0 12px 50px rgba(0,0,0,.35);
+}
+
+.opening-content h1 span{
+    display:inline-block;
+    color:var(--gold);
+    text-shadow:
+        0 0 20px rgba(255,216,135,.3),
+        0 0 50px rgba(255,216,135,.15);
+    animation:titleGlow 3s ease-in-out infinite;
+}
+
+.opening-content p{
+    margin:0 auto 28px;
+    max-width:570px;
+    color:var(--muted);
+    line-height:1.8;
+    font-size:15px;
+}
+
+.wave-hand{
+    font-size:46px;
+    margin-bottom:18px;
+    animation:wave 2.5s ease-in-out infinite;
+    transform-origin:70% 80%;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.main-button{
+    position:relative;
+    border:1px solid rgba(255,218,148,.35);
+    border-radius:999px;
+    padding:14px 22px;
+    color:#171322;
+    background:linear-gradient(135deg,#fff0c5,#ffd07d);
+    cursor:pointer;
+    font-weight:700;
+    box-shadow:
+        0 12px 35px rgba(255,190,88,.18),
+        inset 0 1px rgba(255,255,255,.8);
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        filter .25s ease;
+}
+
+.main-button span{
+    display:inline-block;
+    margin-left:7px;
+    transition:transform .25s ease;
+}
+
+.main-button:hover{
+    transform:translateY(-3px) scale(1.025);
+    box-shadow:
+        0 18px 50px rgba(255,190,88,.27),
+        0 0 25px rgba(255,219,145,.16);
+    filter:brightness(1.04);
+}
+
+.main-button:hover span{
+    transform:translateX(4px);
+}
+
+.main-button:active{
+    transform:translateY(0) scale(.98);
+}
+
+
+/* =========================================================
+   MESSAGE CARD
+   ========================================================= */
+
+.message-card,
+.game-card,
+.letter-card,
+.prank-card{
+    width:min(760px,94vw);
+    max-height:90vh;
+    overflow:auto;
+    padding:clamp(28px,5vw,55px);
+    border:1px solid var(--border);
+    border-radius:30px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.1),
+            rgba(255,255,255,.035)
+        );
+    box-shadow:
+        var(--shadow),
+        inset 0 1px rgba(255,255,255,.1);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    text-align:center;
+}
+
+.message-card::-webkit-scrollbar,
+.game-card::-webkit-scrollbar,
+.letter-card::-webkit-scrollbar{
+    width:4px;
+}
+
+.message-card::-webkit-scrollbar-thumb,
+.game-card::-webkit-scrollbar-thumb,
+.letter-card::-webkit-scrollbar-thumb{
+    background:rgba(255,217,138,.3);
+    border-radius:999px;
+}
+
+.cake{
+    font-size:54px;
+    margin-bottom:18px;
+    animation:cakeFloat 3s ease-in-out infinite;
+}
+
+.message-card h2,
+.game-card h2,
+.letter-card h2,
+.prank-card h2{
+    margin:13px 0 22px;
+    font-size:clamp(27px,5vw,48px);
+    line-height:1.1;
+}
+
+.message-text{
+    max-width:620px;
+    margin:0 auto 28px;
+}
+
+.message-text p{
+    color:var(--muted);
+    line-height:1.8;
+    margin:0 0 14px;
+    font-size:14px;
+}
+
+
+/* =========================================================
+   GAME
+   ========================================================= */
+
+.game-card{
+    width:min(900px,94vw);
+}
+
+.game-card > p{
+    color:var(--muted);
+    margin-bottom:20px;
+}
+
+.game-stats{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:14px;
+}
+
+.game-stats span{
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.09);
+    font-size:13px;
+}
+
+#game-arena{
+    position:relative;
+    width:100%;
+    height:min(52vh,430px);
+    min-height:300px;
+    overflow:hidden;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,.1);
+    background:
+        radial-gradient(circle at center,rgba(117,130,225,.1),transparent 55%),
+        rgba(0,0,0,.16);
+}
+
+#game-start,
+#game-result{
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    align-content:center;
+    text-align:center;
+    padding:25px;
+    z-index:4;
+}
+
+#game-result{
+    display:none;
+}
+
+#game-result.show{
+    display:grid;
+    animation:fadeUp .7s ease both;
+}
+
+.big-star{
+    font-size:60px;
+    margin-bottom:10px;
+    filter:drop-shadow(0 0 18px rgba(255,219,134,.6));
+    animation:starPulse 1.7s ease-in-out infinite;
+}
+
+#game-start h3,
+#game-result h3{
+    font-size:24px;
+    margin-bottom:18px;
+}
+
+#star-target{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:58px;
+    height:58px;
+    border:0;
+    background:transparent;
+    color:#fff0b4;
+    font-size:46px;
+    cursor:pointer;
+    display:none;
+    z-index:5;
+    transform:translate(-50%,-50%);
+    filter:
+        drop-shadow(0 0 8px rgba(255,230,148,.9))
+        drop-shadow(0 0 24px rgba(255,211,111,.5));
+    animation:targetPulse .9s ease-in-out infinite;
+}
+
+#star-target.show{
+    display:block;
+}
+
+#star-target:active{
+    animation:none;
+    transform:translate(-50%,-50%) scale(.75);
+}
+
+
+/* =========================================================
+   STAR MOTION
+   ========================================================= */
+
+.star-motion-scene{
+    position:relative;
+    width:min(800px,90vw);
+    text-align:center;
+}
+
+.star-motion-scene h2{
+    margin:20px 0 12px;
+    font-size:clamp(32px,6vw,64px);
+    line-height:1.05;
+}
+
+.star-motion-scene p{
+    color:var(--muted);
+}
+
+#flying-star{
+    position:absolute;
+    left:50%;
+    bottom:-120px;
+    font-size:70px;
+    color:#fff1b8;
+    transform:translateX(-50%);
+    filter:drop-shadow(0 0 22px #ffd76f);
+    opacity:0;
+}
+
+#star-motion.active #flying-star{
+    animation:flyStar 3.6s cubic-bezier(.25,.7,.15,1) forwards;
+}
+
+#star-trail{
+    position:absolute;
+    left:50%;
+    bottom:-100px;
+    width:5px;
+    height:250px;
+    transform:translateX(-50%);
+    border-radius:999px;
+    background:linear-gradient(
+        180deg,
+        transparent,
+        rgba(255,220,135,.5),
+        rgba(255,238,182,.8)
+    );
+    filter:blur(3px);
+    opacity:0;
+}
+
+#star-motion.active #star-trail{
+    animation:trailRise 3.4s ease-out forwards;
+}
+
+
+/* =========================================================
+   LETTER
+   ========================================================= */
+
+.letter-scene{
+    width:min(700px,92vw);
+    text-align:center;
+}
+
+.letter-scene h2{
+    margin:15px 0 8px;
+    font-size:clamp(30px,5vw,52px);
+}
+
+.letter-scene > p{
+    color:var(--muted);
+    margin-bottom:30px;
+}
+
+.envelope-button{
+    border:0;
+    background:none;
+    cursor:pointer;
+    perspective:1000px;
+}
+
+.envelope{
+    position:relative;
+    width:min(360px,78vw);
+    aspect-ratio:1.45/1;
+    margin:auto;
+    filter:drop-shadow(0 25px 45px rgba(0,0,0,.35));
+    transition:transform .5s ease;
+}
+
+.envelope-button:hover .envelope{
+    transform:translateY(-7px) rotateX(2deg);
+}
+
+.envelope-back,
+.envelope-front,
+.envelope-flap,
+.letter-paper{
+    position:absolute;
+    inset:0;
+    border-radius:10px;
+}
+
+.envelope-back{
+    background:linear-gradient(145deg,#b9827e,#8d5f69);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.13);
+}
+
+.envelope-front{
+    clip-path:polygon(0 35%,50% 72%,100% 35%,100% 100%,0 100%);
+    background:linear-gradient(145deg,#9f6870,#734f62);
+    z-index:3;
+}
+
+.envelope-flap{
+    clip-path:polygon(0 0,100% 0,50% 55%);
+    background:linear-gradient(145deg,#c58d87,#93616b);
+    transform-origin:top center;
+    z-index:4;
+    transition:transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.envelope-button.opened .envelope-flap{
+    transform:rotateX(180deg);
+}
+
+.letter-paper{
+    left:9%;
+    right:9%;
+    top:10%;
+    bottom:3%;
+    background:#fff8e8;
+    z-index:2;
+    padding:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+    transition:transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.envelope-button.opened .letter-paper{
+    transform:translateY(-60%);
+}
+
+.letter-paper div{
+    height:5px;
+    margin:10px 0;
+    border-radius:99px;
+    background:rgba(130,90,80,.18);
+}
+
+.envelope-seal{
+    position:absolute;
+    left:50%;
+    top:45%;
+    z-index:5;
+    width:48px;
+    height:48px;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    color:#fff3c8;
+    background:linear-gradient(145deg,#dca65c,#a96d54);
+    box-shadow:0 0 22px rgba(255,203,114,.35);
+    transition:opacity .5s ease,transform .5s ease;
+}
+
+.envelope-button.opened .envelope-seal{
+    opacity:0;
+    transform:translate(-50%,-50%) scale(.4);
+}
+
+.tap-hint{
+    margin-top:28px;
+    color:var(--gold);
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    animation:hintPulse 1.8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   LETTER PARTS
+   ========================================================= */
+
+.letter-card{
+    position:relative;
+}
+
+.letter-icon{
+    font-size:50px;
+    margin-bottom:12px;
+    animation:letterFloat 3s ease-in-out infinite;
+}
+
+.letter-part-text{
+    min-height:150px;
+    display:grid;
+    place-items:center;
+    max-width:620px;
+    margin:0 auto 20px;
+}
+
+.letter-part-text p{
+    color:var(--muted);
+    line-height:1.9;
+    font-size:15px;
+}
+
+.letter-dots{
+    display:flex;
+    justify-content:center;
+    gap:7px;
+    margin-bottom:24px;
+}
+
+.letter-dots i{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:rgba(255,255,255,.25);
+    transition:.3s ease;
+}
+
+.letter-dots i.active{
+    width:22px;
+    border-radius:999px;
+    background:var(--gold);
+    box-shadow:0 0 12px rgba(255,215,130,.45);
+}
+
+
+/* =========================================================
+   PRANK
+   ========================================================= */
+
+.prank-card{
+    min-height:390px;
+    display:grid;
+    place-items:center;
+}
+
+#prank-loading,
+#prank-result{
+    width:100%;
+}
+
+#prank-result{
+    display:none;
+}
+
+#prank-result.show{
+    display:block;
+    animation:prankReveal .9s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.prank-loader{
+    width:70px;
+    height:70px;
+    margin:0 auto 25px;
+    border:1px solid rgba(255,255,255,.15);
+    border-top-color:var(--gold);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    color:var(--gold);
+    animation:spin 1.4s linear infinite;
+}
+
+#prank-status{
+    margin:18px 0;
+    font-size:20px;
+}
+
+#prank-result .prank-emoji{
+    font-size:72px;
+    margin-bottom:15px;
+    animation:prankShake .8s ease-in-out infinite;
+}
+
+#prank-result p{
+    color:var(--muted);
+    max-width:500px;
+    margin:0 auto 25px;
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   PRAYER
+   ========================================================= */
+
+.prayer-scene{
+    position:relative;
+    width:min(850px,92vw);
+    text-align:center;
+    padding-top:20px;
+}
+
+.prayer-glow{
+    position:absolute;
+    left:50%;
+    top:-100px;
+    width:360px;
+    height:360px;
+    transform:translateX(-50%);
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(255,220,147,.2),
+        rgba(174,192,255,.06) 45%,
+        transparent 70%
+    );
+    filter:blur(10px);
+    animation:prayerGlow 4s ease-in-out infinite;
+}
+
+.praying-person{
+    position:relative;
+    width:150px;
+    height:190px;
+    margin:0 auto 25px;
+}
+
+.person-head{
+    position:absolute;
+    left:50%;
+    top:18px;
+    width:58px;
+    height:58px;
+    transform:translateX(-50%);
+    border-radius:50%;
+    background:linear-gradient(145deg,#3d4669,#202640);
+    box-shadow:0 0 35px rgba(172,192,255,.13);
+}
+
+.person-body{
+    position:absolute;
+    left:50%;
+    bottom:0;
+    width:110px;
+    height:125px;
+    transform:translateX(-50%);
+    border-radius:55px 55px 20px 20px;
+    background:linear-gradient(145deg,#303958,#151a30);
+}
+
+.praying-hands{
+    position:absolute;
+    left:50%;
+    top:72px;
+    transform:translateX(-50%);
+    font-size:42px;
+    filter:drop-shadow(0 0 15px rgba(255,220,144,.35));
+    animation:handsPrayer 2.5s ease-in-out infinite;
+}
+
+.prayer-scene h2{
+    margin:15px 0;
+    font-size:clamp(32px,6vw,62px);
+    line-height:1.05;
+}
+
+.prayer-scene p{
+    max-width:650px;
+    margin:0 auto 25px;
+    color:var(--muted);
+    line-height:1.9;
+}
+
+
+/* =========================================================
+   FINAL
+   ========================================================= */
+
+.final-scene{
+    position:relative;
+    width:min(900px,92vw);
+    text-align:center;
+}
+
+.final-lantern{
+    font-size:58px;
+    margin-bottom:22px;
+    filter:drop-shadow(0 0 22px rgba(255,191,89,.5));
+    animation:lanternSwing 4s ease-in-out infinite;
+}
+
+.final-scene h2{
+    color:var(--muted);
+    font-size:clamp(22px,4vw,38px);
+    font-weight:400;
+}
+
+.final-scene h1{
+    margin:15px 0 25px;
+    font-size:clamp(35px,7vw,72px);
+    line-height:1.03;
+    letter-spacing:-.035em;
+    color:var(--gold2);
+    text-shadow:0 0 35px rgba(255,215,135,.13);
+}
+
+.gold-line{
+    width:100px;
+    height:1px;
+    margin:0 auto 22px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    box-shadow:0 0 15px rgba(255,218,140,.35);
+}
+
+.final-scene p{
+    color:var(--muted);
+    margin-bottom:28px;
+}
+
+.replay-button{
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.05);
+    color:#fff;
+    border-radius:999px;
+    padding:11px 19px;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.replay-button:hover{
+    background:rgba(255,255,255,.1);
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes skyDrift{
+    from{transform:translate3d(-2%,0,0) scale(1)}
+    to{transform:translate3d(2%,2%,0) scale(1.06)}
+}
+
+@keyframes scan{
+    0%{transform:translateX(-100%)}
+    100%{transform:translateX(100%)}
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.25;transform:scale(.75)}
+    50%{opacity:1;transform:scale(1.25)}
+}
+
+@keyframes shoot{
+    0%,75%{
+        opacity:0;
+        transform:translate(0,0) rotate(-28deg);
+    }
+    80%{
+        opacity:1;
+    }
+    92%,100%{
+        opacity:0;
+        transform:translate(-180px,100px) rotate(-28deg);
+    }
+}
+
+@keyframes cloudMove{
+    from{transform:translateX(-20px)}
+    to{transform:translateX(50px)}
+}
+
+@keyframes lanternSwing{
+    0%,100%{transform:rotate(-5deg) translateY(0)}
+    50%{transform:rotate(5deg) translateY(5px)}
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(.9);opacity:.7}
+    50%{transform:scale(1.15);opacity:1}
+}
+
+@keyframes moonFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+}
+
+@keyframes titleGlow{
+    0%,100%{filter:brightness(1)}
+    50%{filter:brightness(1.18)}
+}
+
+@keyframes wave{
+    0%,100%{transform:rotate(0)}
+    15%{transform:rotate(15deg)}
+    30%{transform:rotate(-10deg)}
+    45%{transform:rotate(15deg)}
+    60%{transform:rotate(0)}
+}
+
+@keyframes cakeFloat{
+    0%,100%{transform:translateY(0) rotate(-2deg)}
+    50%{transform:translateY(-8px) rotate(2deg)}
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes starPulse{
+    0%,100%{transform:scale(.9) rotate(-4deg)}
+    50%{transform:scale(1.1) rotate(4deg)}
+}
+
+@keyframes targetPulse{
+    0%,100%{
+        transform:translate(-50%,-50%) scale(.9) rotate(-5deg);
+    }
+    50%{
+        transform:translate(-50%,-50%) scale(1.15) rotate(5deg);
+    }
+}
+
+@keyframes flyStar{
+    0%{
+        opacity:0;
+        bottom:-120px;
+        transform:translateX(-50%) scale(.5);
+    }
+    12%{
+        opacity:1;
+    }
+    80%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+        bottom:82vh;
+        transform:translateX(-50%) scale(.15);
+    }
+}
+
+@keyframes trailRise{
+    0%{
+        opacity:0;
+        transform:translateX(-50%) scaleY(.1);
+        transform-origin:bottom;
+    }
+    15%{opacity:.8}
+    100%{
+        opacity:0;
+        transform:translateX(-50%) scaleY(1);
+    }
+}
+
+@keyframes hintPulse{
+    0%,100%{opacity:.4}
+    50%{opacity:1}
+}
+
+@keyframes letterFloat{
+    0%,100%{transform:translateY(0) rotate(-2deg)}
+    50%{transform:translateY(-7px) rotate(2deg)}
+}
+
+@keyframes prankReveal{
+    from{
+        opacity:0;
+        transform:scale(.85) rotate(-2deg);
+        filter:blur(8px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) rotate(0);
+        filter:blur(0);
+    }
+}
+
+@keyframes prankShake{
+    0%,100%{transform:rotate(0)}
+    25%{transform:rotate(-5deg)}
+    75%{transform:rotate(5deg)}
+}
+
+@keyframes prayerGlow{
+    0%,100%{
+        transform:translateX(-50%) scale(.9);
+        opacity:.55;
+    }
+    50%{
+        transform:translateX(-50%) scale(1.12);
+        opacity:1;
+    }
+}
+
+@keyframes handsPrayer{
+    0%,100%{transform:translateX(-50%) translateY(0)}
+    50%{transform:translateX(-50%) translateY(-6px)}
+}
+
+
+/* =========================================================
+   RESPONSIVE — HP
+   ========================================================= */
+
+@media (max-width:700px){
+
+    .screen{
+        padding:16px;
+    }
+
+    .moon{
+        top:7%;
+        right:6%;
+    }
+
+    .opening-content{
+        padding-top:30px;
+    }
+
+    .opening-content h1{
+        font-size:clamp(38px,12vw,62px);
+    }
+
+    .opening-content p{
+        font-size:13px;
+        line-height:1.7;
+    }
+
+    .message-card,
+    .game-card,
+    .letter-card,
+    .prank-card{
+        padding:25px 18px;
+        border-radius:24px;
+    }
+
+    .message-text p{
+        font-size:13px;
+        line-height:1.75;
+    }
+
+    .game-card h2{
+        font-size:30px;
+    }
+
+    #game-arena{
+        min-height:330px;
+        height:55vh;
+    }
+
+    #star-target{
+        width:52px;
+        height:52px;
+        font-size:40px;
+    }
+
+    .envelope{
+        width:min(330px,82vw);
+    }
+
+    .letter-part-text{
+        min-height:180px;
+    }
+
+    .letter-part-text p{
+        font-size:14px;
+        line-height:1.8;
+    }
+
+    .prank-card{
+        min-height:360px;
+    }
+
+    .prayer-scene p{
+        font-size:13px;
+        line-height:1.75;
+    }
+
+    .final-scene h1{
+        font-size:clamp(34px,10vw,55px);
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONE
+   ========================================================= */
+
+@media (max-width:390px){
+
+    .screen{
+        padding:12px;
+    }
+
+    .main-button{
+        padding:12px 18px;
+        font-size:13px;
+    }
+
+    .message-card h2,
+    .game-card h2,
+    .letter-card h2,
+    .prank-card h2{
+        font-size:26px;
+    }
+
+    #game-arena{
+        min-height:290px;
+    }
+
+    .big-star{
+        font-size:50px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.001ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+        transition-duration:.001ms !important;
+    }
+
+}
